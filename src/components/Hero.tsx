@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Wand2, Sparkles } from 'lucide-react';
+import { Wand2 } from 'lucide-react';
 
 interface HeroProps {
     onTryNow: () => void;
