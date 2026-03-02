@@ -6,11 +6,6 @@ interface HeroProps {
 }
 
 export function Hero({ onTryNow }: HeroProps) {
-    const handleTryNow = (e: React.FormEvent) => {
-        e.preventDefault();
-        onTryNow();
-    };
-
     return (
         <section className="min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-12 relative overflow-hidden">
             {/* Dark theme background lighting/glow effects */}
@@ -34,28 +29,21 @@ export function Hero({ onTryNow }: HeroProps) {
                     The fastest way to generate high-quality, engaging videos directly from text prompts. No login required for your first creation.
                 </p>
 
-                <motion.form
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
-                    onSubmit={handleTryNow}
-                    className="bg-brand-dark/50 backdrop-blur-xl border border-white/10 p-2 flex flex-col sm:flex-row items-center max-w-3xl mx-auto w-full group focus-within:ring-2 focus-within:ring-brand-cyan/50 focus-within:border-brand-cyan/40 transition-all rounded-[2rem] shadow-2xl"
+                    className="bg-brand-dark/50 backdrop-blur-xl border border-white/10 p-2 flex items-center justify-center max-w-3xl mx-auto w-full rounded-[2rem] shadow-2xl"
                 >
-                    <div className="flex-1 w-full pl-6 pr-4 py-3 sm:py-0">
-                        <input
-                            type="text"
-                            placeholder="Describe the video you want to create..."
-                            className="w-full bg-transparent outline-none text-white placeholder:text-white/30 text-lg font-light"
-                        />
-                    </div>
                     <button
-                        type="submit"
+                        type="button"
+                        onClick={onTryNow}
                         className="w-full sm:w-auto bg-brand-cyan hover:bg-white text-brand-black px-8 py-4 rounded-[1.5rem] font-bold flex items-center justify-center gap-2 transition-all duration-300 m-1 glow-effect hover:shadow-[0_0_40px_rgba(0,240,255,0.6)]"
                     >
                         <Wand2 className="w-5 h-5" />
                         Try Now
                     </button>
-                </motion.form>
+                </motion.div>
 
                 {/* Video Mockup Section */}
                 <div className="mt-20 relative mx-auto max-w-4xl rounded-2xl overflow-hidden glass-card border-white/10 p-2 shadow-[0_0_50px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
